@@ -1,0 +1,14 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Dynamic Dependency Injection\n\n\nwe will start soon...", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#dynamic-dependency-injection", 
+            "text": "we will start soon...", 
+            "title": "Dynamic Dependency Injection"
+        }
+    ]
+}
