@@ -1,0 +1,5 @@
+site_name: Dynamic-Dependency-Injection
+theme: readthedocs
+markdown_extensions:
+    - toc:
+        permalink: True
