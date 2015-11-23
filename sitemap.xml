@@ -4,9 +4,35 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2015-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
+        
+    <url>
+     <loc>None/about/license/</loc>
+     <lastmod>2015-11-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/about/release-notes/</loc>
+     <lastmod>2015-11-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/docu/nested-builder/</loc>
+     <lastmod>2015-11-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>

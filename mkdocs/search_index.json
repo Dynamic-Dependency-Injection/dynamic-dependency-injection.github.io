@@ -2,11 +2,61 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Dynamic Dependency Injection\n\n\nwe will start soon...", 
+            "text": "Dynamic Dependency Injection\n\n\nwe will start soon...\n\n\nIf you want to have a small overview about some DI - Frameworks.\n\n\nTalk: \nDI Frameworks - Some hidden Pearls", 
             "title": "Home"
         }, 
         {
             "location": "/#dynamic-dependency-injection", 
+            "text": "we will start soon...  If you want to have a small overview about some DI - Frameworks.  Talk:  DI Frameworks - Some hidden Pearls", 
+            "title": "Dynamic Dependency Injection"
+        }, 
+        {
+            "location": "/about/license/", 
+            "text": "Welcome to ProxyBuilder\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "License"
+        }, 
+        {
+            "location": "/about/license/#welcome-to-proxybuilder", 
+            "text": "For full documentation visit  mkdocs.org .", 
+            "title": "Welcome to ProxyBuilder"
+        }, 
+        {
+            "location": "/about/license/#commands", 
+            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
+            "title": "Commands"
+        }, 
+        {
+            "location": "/about/license/#project-layout", 
+            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "Project layout"
+        }, 
+        {
+            "location": "/about/release-notes/", 
+            "text": "Welcome to ProxyBuilder\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "Release Notes"
+        }, 
+        {
+            "location": "/about/release-notes/#welcome-to-proxybuilder", 
+            "text": "For full documentation visit  mkdocs.org .", 
+            "title": "Welcome to ProxyBuilder"
+        }, 
+        {
+            "location": "/about/release-notes/#commands", 
+            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
+            "title": "Commands"
+        }, 
+        {
+            "location": "/about/release-notes/#project-layout", 
+            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "Project layout"
+        }, 
+        {
+            "location": "/docu/nested-builder/", 
+            "text": "Dynamic Dependency Injection\n\n\nwe will start soon...", 
+            "title": "Nested Builder"
+        }, 
+        {
+            "location": "/docu/nested-builder/#dynamic-dependency-injection", 
             "text": "we will start soon...", 
             "title": "Dynamic Dependency Injection"
         }
