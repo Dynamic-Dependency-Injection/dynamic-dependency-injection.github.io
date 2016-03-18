@@ -1,187 +1,173 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Dynamic-Dependency-Injection</title>
-  
-
-  <link rel="shortcut icon" href="./img/favicon.ico">
-
-  
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="./css/highlight.css">
-
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "None";
-  </script>
-  
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script>
-  <script src="./js/theme.js"></script> 
-
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> Dynamic-Dependency-Injection</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
-          
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href=".">Home</a>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-            <ul>
+        
+        
+        <link rel="shortcut icon" href="./img/favicon.ico">
+
+	<title>Dynamic-Dependency-Injection</title>
+
+        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/highlight.css">
+        <link href="./css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href=".">Dynamic-Dependency-Injection</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
             
-                <li class="toctree-l3"><a href="#dynamic-dependency-injection">Dynamic Dependency Injection</a></li>
-                
+            
+                <li class="active">
+                    <a href=".">Home</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="injection/">Injection</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="creation/">Creation</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="resolver/">Resolver</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="optionals/">Optionals</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="projectinfos/">Projectinfos</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="infos/">Infos</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="about/">About</a>
+                </li>
+            
             
             </ul>
-        
-    </li>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>About</span></li>
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="about/license/">License</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="about/release-notes/">Release Notes</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Docu</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="docu/nested-builder/">Nested Builder</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">Dynamic-Dependency-Injection</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Home</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="dynamic-dependency-injection">Dynamic Dependency Injection<a class="headerlink" href="#dynamic-dependency-injection" title="Permanent link">&para;</a></h1>
-<p>we will start soon...</p>
-<p>If you want to have a small overview about some DI - Frameworks.</p>
-<p>Talk: <a href="https://youtu.be/E11P29ucJN8">DI Frameworks - Some hidden Pearls</a></p>
-<p><img alt="Jetbrains" src="./_data/logo_intellij_idea.png" />
-<img alt="YourKit" src="./_data/yklogo.png" /></p>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="about/license/" class="btn btn-neutral float-right" title="License"/>Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-	  
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="disabled">
+                    <a rel="next" >
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="injection/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-<div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-      
-        <span style="margin-left: 15px"><a href="about/license/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+    </div>
 </div>
 
-</body>
-</html>
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#welcome-to-dynamic-dependency-injection">Welcome to Dynamic Dependency Injection</a></li>
+        
+            <li><a href="#basics-about-di-frameworks">Basics about DI -Frameworks</a></li>
+        
+            <li><a href="#what-goal-we-want-to-reach">What goal we want to reach?</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
 
-<!--
-MkDocs version : 0.14.0
-Build Date UTC : 2015-11-23 15:21:26.684467
--->
+<h1 id="welcome-to-dynamic-dependency-injection">Welcome to Dynamic Dependency Injection<a class="headerlink" href="#welcome-to-dynamic-dependency-injection" title="Permanent link">&para;</a></h1>
+<p>Here we are working on Dynamic-Dependency-Injection. You could find this 
+repo on Github -&gt; <a href="https://github.com/Dynamic-Dependency-Injection/dynamic-cdi">Dynamic-Dependency-Injection</a></p>
+<h2 id="basics-about-di-frameworks">Basics about DI -Frameworks<a class="headerlink" href="#basics-about-di-frameworks" title="Permanent link">&para;</a></h2>
+<p>If you want to know a little bit more about DI-Frameworks and the comparison between some of them
+you could read the following.</p>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/1EJNXuXiXQrT9r" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+<p><div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/svenruppert/di-frameworks-hidden-pearls-20151118001" title="DI Frameworks - hidden pearls" target="_blank">DI Frameworks - hidden pearls</a> </strong> from <strong><a target="_blank" href="//www.slideshare.net/svenruppert">Sven Ruppert</a></strong> </div></p>
+<p>Or if you want to see it as a talk...</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i1_Jah55FKc?list=PLjDsqKgqBKbn4RDBDUxJ6HtxayJt6Rca3" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="what-goal-we-want-to-reach">What goal we want to reach?<a class="headerlink" href="#what-goal-we-want-to-reach" title="Permanent link">&para;</a></h2>
+<p>After a longer time using differend DI-Frameworks I decided to start with an internal research project to explore the possibilities to write a different DI-Framework. Something that would fit better to my needs to work with old and big legacy projects. Based on the ProxyBuilder - <a href="http://www.proxybuilder.org">www.proxybuilder.org</a> that was born during the time
+I was writing the german Book <strong><em>"Dynamic Proxies"</em></strong> with <a href="http://www.javaspecialists.eu/">Dr. Heinz Kabutz</a>, I started to use this for the implementations of my first version of the <strong><em>Dynamic Dependency Injection</em></strong>  project. </p>
+<p>The goals I wanted to reach are:</p>
+<ul>
+<li>as less as possible Binding Code</li>
+<li>easy and simple Lifecycle</li>
+<li>technical and business Model-Validation</li>
+<li>easy debugging</li>
+<li>easy mocking</li>
+<li>Dynamic Context</li>
+<li>only dependency to the JDK itself  </li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="./js/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script src="./js/base.js"></script>
+    </body>
+</html>
