@@ -127,6 +127,8 @@
         
             <li><a href="#what-goal-we-want-to-reach">What goal we want to reach?</a></li>
         
+            <li><a href="#jump-start">Jump start</a></li>
+        
     
     </ul>
 </div></div>
@@ -156,7 +158,40 @@ I was writing the german Book <strong><em>"Dynamic Proxies"</em></strong> with <
 <li>easy mocking</li>
 <li>Dynamic Context</li>
 <li>only dependency to the JDK itself  </li>
-</ul></div>
+</ul>
+<h2 id="jump-start">Jump start<a class="headerlink" href="#jump-start" title="Permanent link">&para;</a></h2>
+<p>If you want to start using this project inside your project you could start with the following dependency 
+inside your <strong><em>pom.xml</em></strong></p>
+<pre><code class="xml">    &lt;dependency&gt;
+      &lt;groupId&gt;org.rapidpm.dynamic-cdi&lt;/groupId&gt;
+      &lt;artifactId&gt;rapidpm-dynamic-cdi&lt;/artifactId&gt;
+      &lt;version&gt;***VERSION***&lt;/version&gt;
+    &lt;/dependency&gt;
+</code></pre>
+
+<p>If you are using releases only you will get them from maven central. But if you want to use the developer snapshots too,
+you have to use the maven central SNAPSHOT repository.</p>
+<p>Add the following to your <strong><em>settings.xml</em></strong> to get the snapshots.</p>
+<pre><code>   &lt;profile&gt;
+      &lt;id&gt;allow-snapshots&lt;/id&gt;
+      &lt;activation&gt;
+        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+      &lt;/activation&gt;
+      &lt;repositories&gt;
+        &lt;repository&gt;
+          &lt;id&gt;snapshots-repo&lt;/id&gt;
+          &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
+          &lt;releases&gt;
+            &lt;enabled&gt;false&lt;/enabled&gt;
+          &lt;/releases&gt;
+          &lt;snapshots&gt;
+            &lt;enabled&gt;true&lt;/enabled&gt;
+            &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+          &lt;/snapshots&gt;
+        &lt;/repository&gt;
+      &lt;/repositories&gt;
+    &lt;/profile&gt;
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">
