@@ -121,19 +121,91 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#dynamic-dependency-injection">Dynamic Dependency Injection</a></li>
+        <li class="main active"><a href="#injections">Injections</a></li>
+        
+            <li><a href="#how-ddi-will-resolve-the-corresponding-implementation">How DDI will resolve the corresponding Implementation?</a></li>
+        
+            <li><a href="#how-to-write-mocks-for-interfaces-or-classes">How to write Mocks for Interfaces or classes ?</a></li>
+        
+            <li><a href="#customizing-the-injection-target">Customizing the Injection Target</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="dynamic-dependency-injection">Dynamic Dependency Injection<a class="headerlink" href="#dynamic-dependency-injection" title="Permanent link">&para;</a></h1>
-<p>we will start soon...</p>
-<p>If you want to have a small overview about some DI - Frameworks.</p>
-<p>Talk: <a href="https://youtu.be/E11P29ucJN8">DI Frameworks - Some hidden Pearls</a></p>
-<p><img alt="Jetbrains" src="./_data/logo_intellij_idea.png" />
-<img alt="YourKit" src="./_data/yklogo.png" /></p></div>
+<h1 id="injections">Injections<a class="headerlink" href="#injections" title="Permanent link">&para;</a></h1>
+<p>Here I will explain the different ways to resolve what is the right implementation. This will ledd at some points 
+to other chapters here at this website for more or detailed informations about the way it is realized.</p>
+<p>But lets start with the Hello World.</p>
+<h2 id="how-ddi-will-resolve-the-corresponding-implementation">How DDI will resolve the corresponding Implementation?<a class="headerlink" href="#how-ddi-will-resolve-the-corresponding-implementation" title="Permanent link">&para;</a></h2>
+<p>Please, check the description of a <strong><em><a href="http://www.dynamic-dependency-injection.org/resolver/">ClassResolver</a></em></strong> 
+and <strong><em><a href="http://www.dynamic-dependency-injection.org/resolver/">ProducerResolver</a></em></strong></p>
+<p>Here I will give you the full list of all combinations you could use with this Dynamic-Dependency Injection Framework.
+This will help you to decide what kind of combinations are fitting best for you inside your project.
+One thing that I could recommend to think about is, the way you want to write injected Mocks.</p>
+<h3 id="inject-interface"><code>@Inject Interface</code><a class="headerlink" href="#inject-interface" title="Permanent link">&para;</a></h3>
+<p>If you write <code>@Inject Interface</code> the framework will use the following to resolv the corresponding implementation.</p>
+<ul>
+<li>Interface , no Impl. -&gt; <strong><em>Exception</em></strong></li>
+<li>
+<p>Interface , no Impl., 1 Producer for the Interface  -&gt; Producer for the Interface will be used</p>
+</li>
+<li>
+<p>Interface , 1 Impl. -&gt; will use the Impl.</p>
+</li>
+<li>Interface , 1 Impl., 1 Producer for Impl. -&gt; Producer for the Impl will be used</li>
+<li>Interface , 1 Impl., n Producer for Impl. -&gt; <strong><em>Exception</em></strong></li>
+<li>Interface , 1 Impl., 1 Producer for Interface -&gt; Producer for the Interface will be used</li>
+<li>
+<p>Interface , 1 Impl., n Producer for Interface -&gt; <strong><em>Exception</em></strong></p>
+</li>
+<li>
+<p>Interface , 1 Impl., 1 Producer for Interface , 1 Producer for Impl. -&gt; <strong><em>Exception</em></strong></p>
+</li>
+<li>
+<p>Interface , n Impl. -&gt; <strong><em>Exception</em></strong></p>
+</li>
+<li>Interface , n Impl., 1 responsible ClassResolver -&gt; result of the ClassResolver will be used</li>
+<li>Interface , n Impl., 1 Producer for Interface -&gt; Producer for the Interface will be used</li>
+<li>
+<p>Interface , n Impl., 1-n Producer for Impl. -&gt; <strong><em>Exception</em></strong></p>
+</li>
+<li>
+<p>Interface , n Impl., 1 responsible ClassResolver, 1 Producer for Interface -&gt; Producer for the Interface will be used</p>
+</li>
+<li>Interface , n Impl., 1 responsible ClassResolver, 1-n Producer for Impl. -&gt; will use the resolved Class or corresponding Producer if available</li>
+<li>
+<p>Interface , n Impl., n responsible ClassResolver -&gt; <strong><em>Exception</em></strong></p>
+</li>
+<li>
+<p>Interface, 1 Impl., n Producer for Impl, 1 ProducerResolver for Impl -&gt; selected Producer from ProducerResolver</p>
+</li>
+<li>Interface, n Impl., 1 responsible ClassResolver, 0-n Producer for every Impl, 1 ProducerResolver for every Impl -&gt; selected Producer from ProducerResolver, for selected Impl from ClassResolver</li>
+</ul>
+<h3 id="inject-impl"><code>@Inject Impl.</code><a class="headerlink" href="#inject-impl" title="Permanent link">&para;</a></h3>
+<p>If you write <code>@Inject Impl.</code> there are not so many possible ways that the framework could go.</p>
+<ul>
+<li>Impl. -&gt; will use the Impl.</li>
+<li>Impl., 1 Producer -&gt; will use the Producer for the Impl.</li>
+<li>Impl., n Producer -&gt; <strong><em>Exception</em></strong></li>
+</ul>
+<h2 id="how-to-write-mocks-for-interfaces-or-classes">How to write Mocks for Interfaces or classes ?<a class="headerlink" href="#how-to-write-mocks-for-interfaces-or-classes" title="Permanent link">&para;</a></h2>
+<p>You can use this framework for the mocking too. The concept is based on the Designpattern <strong><em>ObjectAdapter</em></strong>.
+You can have too versions of an <strong><em>ObjectAdapter</em></strong> , based on the implementations the <a href="http://www.proxybuilder.org">ProxyBuilder</a> will give you. 
+Version one is a <a href="http://www.proxybuilder.org/objectadapter/#dynamicobjectadapter">DynamicObjectAdapter</a>. This you could only use if you have an interface available.
+The <strong><em>DynamicObjectAdapterBuilder</em></strong> will be created during the compile phase if you annotate the corresponding interface with the Annotation <code>@DynamicObjectAdapterBuilder</code>. Please check the documentation about the <a href="http://www.proxybuilder.org/objectadapter/#dynamicobjectadapter">DynamicObjectAdapter</a> for more details.</p>
+<p>Version two is a <a href="http://www.proxybuilder.org/objectadapter/#staticobjectadapter">StaticObjectAdapter</a>. This you could use for Interfaces and Classes. To create a <a href="http://www.proxybuilder.org/objectadapter/#staticobjectadapter">StaticObjectAdapter</a> for your target you have to annotate the the target class or interface with the Annotation <code>@StaticObjectAdapter</code>. After the compile phase you could find the generated classes at <strong><em>target/generated-sources</em></strong> (if you are using maven).</p>
+<h3 id="mocking">Mocking<a class="headerlink" href="#mocking" title="Permanent link">&para;</a></h3>
+<p>If you want to use a Mock for an jUnitTest, you have to use a ClassResolver or ProducerResolver to make the decission for the Mock explicite for your test. The easiest way is the usage of an Producer that will create the Mock. With this you could mock something that is deep inside your system, without creating the full hierarchy with frameworks like Mockito. Mostly this will lead to constructions that are much more like the production system.</p>
+<h4 id="example-with-one-interface-and-one-production-class">example with one interface and one production class<a class="headerlink" href="#example-with-one-interface-and-one-production-class" title="Permanent link">&para;</a></h4>
+<p>Inside the production source path you will have an interface and one implementation. </p>
+<pre><code class="java">
+
+</code></pre>
+
+<h2 id="customizing-the-injection-target">Customizing the Injection Target<a class="headerlink" href="#customizing-the-injection-target" title="Permanent link">&para;</a></h2>
+<p>You can combine all with a <code>@Proxy(virtual=true)</code> and it will use the same solution, but only as VirtualProxy.</p></div>
         </div>
 
         <footer class="col-md-12">
