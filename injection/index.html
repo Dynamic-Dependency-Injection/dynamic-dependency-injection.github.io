@@ -200,12 +200,104 @@ The <strong><em>DynamicObjectAdapterBuilder</em></strong> will be created during
 <p>If you want to use a Mock for an jUnitTest, you have to use a ClassResolver or ProducerResolver to make the decission for the Mock explicite for your test. The easiest way is the usage of an Producer that will create the Mock. With this you could mock something that is deep inside your system, without creating the full hierarchy with frameworks like Mockito. Mostly this will lead to constructions that are much more like the production system.</p>
 <h4 id="example-with-one-interface-and-one-production-class">example with one interface and one production class<a class="headerlink" href="#example-with-one-interface-and-one-production-class" title="Permanent link">&para;</a></h4>
 <p>Inside the production source path you will have an interface and one implementation. </p>
-<pre><code class="java">
+<pre><code class="java">  public interface Service {
+    String doWork(String txt);
+  }
+
+  public static class ServiceA implements Service {
+    public String doWork(String txt) {
+      return txt + &quot;A&quot;;
+    }
+  }
+</code></pre>
+
+<p>During the runntime the solution is very simple, because there is only on implementation available. But now we would like 
+to activate a Mock during the jUnit test. For this we need a second implementation called <code>ServiceB</code></p>
+<pre><code class="java"> public static class ServiceB implements Service {
+    public String doWork(String txt) {
+      return txt + &quot;B&quot;;
+    }
+  }
+</code></pre>
+
+<p>To activate this mock only for the jUnit Tests we have to configer the DI Container in a way that the <code>ServiceB</code> will be available.
+This means, during the startup phase <code>@Before</code> we are clearing the existing Reflection Model to make sure there is no other config from any other test anymore. After this we re activating only production classes and the package from the test itself. </p>
+<pre><code class="java">  @Before
+  public void setUp() throws Exception {
+    DI.clearReflectionModel();
+    DI.activatePackages(&quot;org.rapidpm&quot;);
+    DI.activatePackages(this.getClass());
+  }
+</code></pre>
+
+<p>Now we have the mock inside the reflection model, too. This means we have to give the container a possibility to resolve this. For this we have to create a <code>ClassResolver</code>. This will be instanciated and asked for the solution. </p>
+<pre><code class="java">  @ResponsibleFor(Service.class)
+  public static class ServiceClassResolver implements ClassResolver&lt;Service&gt; {
+    @Override
+    public Class&lt;? extends Service&gt; resolve(final Class&lt;Service&gt; interf) {
+      return ServiceB.class;
+    }
+  }
+</code></pre>
+
+<p>Now the container is able to ask the ClassResolver, what will be the right implementation to use. In our case, the mock.</p>
+<p>Here you can see, one of the jUnit Tests that we are using to test the ClassResolver. <a href="https://github.com/Dynamic-Dependency-Injection/dynamic-cdi/blob/develop/src/test/java/junit/org/rapidpm/ddi/classresolver/ClassresolverTest014.java">ClassResolverTest014.java</a></p>
+<pre><code class="java">  @Before
+  public void setUp() throws Exception {
+    DI.clearReflectionModel();
+    DI.activatePackages(&quot;org.rapidpm&quot;);
+    DI.activatePackages(this.getClass());
+  }
+
+  public static Boolean toggle = true;
+
+  @Test
+  public void test001() throws Exception {
+    Assert.assertEquals(ServiceB.class, DI.activateDI(Service.class).getClass());
+    Assert.assertEquals(ServiceA.class, DI.activateDI(Service.class).getClass());
+    Assert.assertEquals(ServiceB.class, DI.activateDI(Service.class).getClass());
+    DI.clearReflectionModel();
+  }
+
+  public interface Service {
+    String doWork(String txt);
+  }
+
+  public static class ServiceA implements Service {
+    public String doWork(String txt) {
+      return txt + &quot;A&quot;;
+    }
+  }
+
+  public static class ServiceB implements Service {
+    public String doWork(String txt) {
+      return txt + &quot;B&quot;;
+    }
+  }
+
+  @ResponsibleFor(Service.class)
+  public static class ServiceClassResolver implements ClassResolver&lt;Service&gt; {
+    @Override
+    public Class&lt;? extends Service&gt; resolve(final Class&lt;Service&gt; interf) {
+      toggle = !toggle;
+      System.out.println(&quot;toggle = &quot; + toggle);
+      return (toggle) ? ServiceA.class : ServiceB.class;
+    }
+  }
 
 </code></pre>
 
 <h2 id="customizing-the-injection-target">Customizing the Injection Target<a class="headerlink" href="#customizing-the-injection-target" title="Permanent link">&para;</a></h2>
-<p>You can combine all with a <code>@Proxy(virtual=true)</code> and it will use the same solution, but only as VirtualProxy.</p></div>
+<p>If you want to cusomize the injection target, for example to get an VirtualProxy, you have different ways to reach this goal.
+One is the explicite way inside the source code.
+You can combine an <code>@Inject</code> with a <code>@Proxy(virtual=true)</code> and it will use the same implementing class, but as a VirtualProxy.</p>
+<pre><code class="java">@Inject @Proxy(virtual=true) Service service; 
+</code></pre>
+
+<p>Bu you can do more lie the following.
+<p>
+<img src="../_data/DI-Hidden-Pearls_MasterSlides_Page74.001.jpeg" alt="Drawing" style="width:825px;"/>
+</p></p></div>
         </div>
 
         <footer class="col-md-12">
