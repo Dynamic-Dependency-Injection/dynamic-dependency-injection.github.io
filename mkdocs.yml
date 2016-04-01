@@ -1,13 +1,15 @@
 site_name: Dynamic-Dependency-Injection
-theme: readthedocs
+theme: flatly
 markdown_extensions:
     - toc:
         permalink: True
 
 pages:
 - Home: index.md
-- About: 
-    - 'License': 'about/license.md'
-    - 'Release Notes': 'about/release-notes.md'
-- Docu:
-    - 'Nested Builder': 'docu/nested-builder.md'
+- Injection: injection/index.md
+- Creation: creation/index.md
+- Resolver: resolver/index.md
+- Optionals: optionals/index.md
+- Projectinfos: projectinfos/index.md
+- Infos: infos/index.md
+- About: about.md
