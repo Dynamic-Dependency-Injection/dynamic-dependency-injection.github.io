@@ -288,16 +288,18 @@ This means, during the startup phase <code>@Before</code> we are clearing the ex
 </code></pre>
 
 <h2 id="customizing-the-injection-target">Customizing the Injection Target<a class="headerlink" href="#customizing-the-injection-target" title="Permanent link">&para;</a></h2>
-<p>If you want to cusomize the injection target, for example to get an VirtualProxy, you have different ways to reach this goal.
-One is the explicite way inside the source code.
+<p>If you want to cusomize the injection target, for example to get an VirtualProxy, you have different ways to reach this goal.</p>
+<h3 id="using-the-proxy">using the @Proxy<a class="headerlink" href="#using-the-proxy" title="Permanent link">&para;</a></h3>
+<p>One is the explicite way inside the source code.
 You can combine an <code>@Inject</code> with a <code>@Proxy(virtual=true)</code> and it will use the same implementing class, but as a VirtualProxy.</p>
 <pre><code class="java">@Inject @Proxy(virtual=true) Service service; 
 </code></pre>
 
-<p>Bu you can do more lie the following.
+<p>And you can do more like the following.
 <p>
 <img src="../_data/DI-Hidden-Pearls_MasterSlides_Page74.001.jpeg" alt="Drawing" style="width:825px;"/>
-</p></p></div>
+</p></p>
+<h3 id="configuring-the-di-container">configuring the DI container<a class="headerlink" href="#configuring-the-di-container" title="Permanent link">&para;</a></h3></div>
         </div>
 
         <footer class="col-md-12">
