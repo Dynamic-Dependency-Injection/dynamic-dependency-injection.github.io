@@ -1,4 +1,7 @@
 site_name: Dynamic-Dependency-Injection
+site_author: Sven Ruppert
+google_analytics: ['UA-35462441-6', 'Dynamic-Dependency-Injection']
+
 theme: flatly
 markdown_extensions:
     - toc:
